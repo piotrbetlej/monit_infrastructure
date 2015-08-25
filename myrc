@@ -1,0 +1,19 @@
+set daemon 10
+
+check host audio_vlc address "192.168.0.3"
+start program = "/usr/audio_vlc_scr.sh"
+stop program = "/bin/bash -c 'kill -s SIGTERM `cat /tmp/audio_vlc.pid` && rm /tmp/audio_vlc*'"
+if failed
+     port 8082
+     protocol http
+then 
+     restart
+
+check host video_vlc address "192.168.0.3"
+start program = "/usr/video_vlc_scr.sh"
+stop program = "/bin/bash -c 'kill -s SIGTERM `cat /tmp/video_vlc.pid` && rm /tmp/video_vlc*'"
+if failed
+     port 8081
+     protocol http
+then
+     restart
