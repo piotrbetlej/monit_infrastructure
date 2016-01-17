@@ -6,3 +6,5 @@ bin/su piob -c "cvlc -vvv v4l2:\/\/\/dev\/video0:chroma=mjpg:width=1280:height=7
 
 /* Chirp sound and red marked errors */
 /bin/su piob -c "cvlc -vvv v4l2:\/\/\/dev\/video0:chroma=mjpg:width=1280:height=720 :input-slave=alsa:\/\/hw:1,0 --sout \"#transcode{acodec=mpga}:standard{access=http,mux=ts,dst=:8083}\""
+
+/* Flac + TS does not work*/
