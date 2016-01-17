@@ -1,0 +1,5 @@
+VLC streaming experiments:
+
+/* Unfortunately this does not work with Android VLC client (codec missing??) */
+- working configuration for merging mjpeg and alsa audio stream (saves CPU performance by using C170 webcam MJPEG) :
+bin/su piob -c "cvlc -vvv v4l2:\/\/\/dev\/video0:chroma=mjpg:width=1280:height=720 :input-slave=alsa:\/\/hw:1,0 --sout \"#transcode{acodec=flac}:standard{access=http,mux=ogg,dst=:8083}\""
